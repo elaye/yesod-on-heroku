@@ -51,3 +51,4 @@ $stack_bin install yesod-bin cabal-install --install-ghc | indent
 cd $build_dir
 echo "-----> Building app with stack"
 $stack_bin build --extra-lib-dirs libs | indent
+exit 1
