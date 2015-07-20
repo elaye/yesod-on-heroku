@@ -33,8 +33,8 @@ echo "Cache dir:"
 echo $cache_dir
 mkdir -p $cache_dir
 cd $cache_dir
-mkdir $cache_dir/stack
-exit 1
+# mkdir $cache_dir/stack
+# exit 1
 
 mkdir -p stack
 cd stack
@@ -55,6 +55,7 @@ echo $PATH
 cd ..
 echo "-----> Installing yesod-bin, caba-install and ghc"
 $stack_bin install yesod-bin cabal-install --install-ghc | indent
+exit 1
 
 cd $build_dir
 echo "-----> Building app with stack"
