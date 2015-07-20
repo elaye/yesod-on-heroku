@@ -27,13 +27,27 @@ export_env_dir() {
 # echo "ls build_dir"
 # ls $build_dir
 # echo $build_dir
-cd $build_dir
+
+mkdir -p stack
+cd stack
+
 echo "-----> Downloading stack"
 stack_bin="stack-0.1.2.0-x86_64-linux"
 wget -nv https://github.com/commercialhaskell/stack/releases/download/v0.1.2.0/$stack_bin.gz| indent
+
 echo "-----> Extracting stack binary"
 gunzip $stack_bin.gz | indent
 chmod +x $stack_bin | indent
+stack_path=$(pwd)
+echo "stack path:"
+echo $stack_path
+export PATH=$PATH:$stack_path
+echo $PATH
+
+cd ..
+echo "-----> Installing yesod-bin, caba-install and ghc"
+$stack_bin install yesod-bin cabal-install --install-ghc | indent
+
+cd $build_dir
 echo "-----> Building app with stack"
-./$stack_bin install yesod-bin cabal-install --install-ghc | indent
-./$stack_bin build | indent
+$stack_bin build --extra-lib-dirs libs | indent
