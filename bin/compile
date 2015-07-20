@@ -35,4 +35,5 @@ echo "-----> Extracting stack binary"
 gunzip $stack_bin.gz
 chmod +x $stack_bin
 echo "-----> Building app with stack"
+./$stack_bin install yesod-bin cabal-install --install-ghc
 ./$stack_bin build
