@@ -31,6 +31,7 @@ echo "Build dir:"
 echo $build_dir
 echo "Cache dir:"
 echo $cache_dir
+mkdir -p $cache_dir
 cd $cache_dir
 mkdir $cache_dir/stack
 exit 1
