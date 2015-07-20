@@ -1,1 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
+
+if [ -n "$(find "$1" -name '*.cabal' -print -quit)" ]; then
+  echo "Haskell" && exit 0
+else
+  exit 1
+fi
