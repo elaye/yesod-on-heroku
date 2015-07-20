@@ -60,7 +60,7 @@ libs_path=$build_dir/libs
 export LD_LIBRARY_PATH=$libs_path
 echo "ld_library_path:"
 echo $LD_LIBRARY_PATH
-$stack_bin install --extra-lib-dirs $libs_path yesod-bin cabal-install --install-ghc | indent
+$stack_bin install --ghc-options -dynamic --ghc-options -shared yesod-bin cabal-install --install-ghc | indent
 exit 1
 
 cd $build_dir
