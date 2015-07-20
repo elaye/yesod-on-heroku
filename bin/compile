@@ -54,13 +54,15 @@ echo $PATH
 
 cd ..
 echo "-----> Installing yesod-bin, caba-install and ghc"
+echo "Build dir ls"
+ls $build_dir
+export LD_LIBRARY_PATH=$build_dir/libs
+echo "ld_library_path:"
+echo $LD_LIBRARY_PATH
 $stack_bin install yesod-bin cabal-install --install-ghc | indent
 exit 1
 
 cd $build_dir
-echo "Build dir ls"
-ls $build_dir
-export LD_LIBRARY_PATH=$build_dir/libs
 echo "-----> Building app with stack"
 $stack_bin build --extra-lib-dirs libs | indent
 exit 1
