@@ -20,7 +20,10 @@ export_env_dir() {
   fi
 }
 
+echo "pwd"
 pwd
+echo "ls"
+echo $build_dir
 echo "-----> Downloading stack"
 stack_bin="stack-0.1.2.0-x86_64-linux"
 wget https://github.com/commercialhaskell/stack/releases/download/v0.1.2.0/$stack_bin.gz
