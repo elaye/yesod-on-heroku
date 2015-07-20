@@ -25,11 +25,12 @@ pwd
 echo "ls"
 ls
 echo $build_dir
+cd $cache_dir
 echo "-----> Downloading stack"
 stack_bin="stack-0.1.2.0-x86_64-linux"
-wget https://github.com/commercialhaskell/stack/releases/download/v0.1.2.0/$stack_bin.gz
+wget -nv https://github.com/commercialhaskell/stack/releases/download/v0.1.2.0/$stack_bin.gz
 echo "-----> Extracting stack binary"
 gunzip $stack_bin.gz
 chmod +x $stack_bin
 echo "-----> Building app with stack"
-./$stack_bin build
+./$stack_bin build $build_dir
