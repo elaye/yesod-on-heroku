@@ -29,7 +29,7 @@ export_env_dir() {
 # echo $build_dir
 cd $build_dir
 echo "-----> Downloading stack"
-stack_bin="stack-0.1.2.0-x86_64-linux" | indent
+stack_bin="stack-0.1.2.0-x86_64-linux"
 wget -nv https://github.com/commercialhaskell/stack/releases/download/v0.1.2.0/$stack_bin.gz| indent
 echo "-----> Extracting stack binary"
 gunzip $stack_bin.gz | indent
