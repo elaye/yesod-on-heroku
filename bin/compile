@@ -22,8 +22,10 @@ export_env_dir() {
 
 echo "pwd"
 pwd
-echo "ls"
+echo "ls ."
 ls
+echo "ls build_dir"
+ls $build_dir
 echo $build_dir
 cd $cache_dir
 echo "-----> Downloading stack"
